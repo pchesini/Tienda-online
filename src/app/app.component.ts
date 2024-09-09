@@ -7,7 +7,7 @@ import { Producto } from './modelos/producto.modelo';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'tienda';
+  imgParent = ''; 
   productos :Producto[] = [
     {
         id: '1',
@@ -28,4 +28,7 @@ export class AppComponent {
         imagen: './image3.jpg'
     }
   ];
+  onLoaded(img: string) {
+    console.log('log padre', img);
+  }
 }
