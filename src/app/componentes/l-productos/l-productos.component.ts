@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Producto } from 'src/app/modelos/producto.modelo';
 
 @Component({
@@ -6,7 +6,10 @@ import { Producto } from 'src/app/modelos/producto.modelo';
   templateUrl: './l-productos.component.html',
   styleUrls: ['./l-productos.component.css']
 })
-export class LProductosComponent {
+export class LProductosComponent implements OnInit{
+  myShopingCart: Producto[]= [];
+  total= 0;
+
   productos :Producto[] = [
     {
         id: '1',
@@ -27,4 +30,16 @@ export class LProductosComponent {
         imagen: './image3.jpg'
     }
   ];
+  
+  constructor(){
+
+  }
+  ngOnInit():void{
+
+  }
+  onAddToShopingCard(producto: Producto){
+    this.myShopingCart.push(producto);
+    this.total = this.myShopingCart.reduce((sum, item)=> sum + item.precio, 0);
+    
+  }
 }
