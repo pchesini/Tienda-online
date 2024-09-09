@@ -9,26 +9,7 @@ import { Producto } from './modelos/producto.modelo';
 export class AppComponent {
   imgParent = ''; 
   showImg= true;
-  productos :Producto[] = [
-    {
-        id: '1',
-        nombre: 'Automobil de juguete',
-        precio: 100,
-        imagen: './image1.jpg'
-    },
-    {
-        id: '2',
-        nombre: 'Muñeca de trapo',
-        precio: 180,
-        imagen: './image2.jpg'
-    },
-    {
-        id: '3',
-        nombre: 'Pelota de futbol',
-        precio: 120,
-        imagen: './image3.jpg'
-    }
-  ];
+
   onLoaded(img: string) {
     console.log('log padre', img);
   }
