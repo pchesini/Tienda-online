@@ -8,6 +8,7 @@ import { Producto } from './modelos/producto.modelo';
 })
 export class AppComponent {
   imgParent = ''; 
+  showImg= true;
   productos :Producto[] = [
     {
         id: '1',
@@ -30,5 +31,8 @@ export class AppComponent {
   ];
   onLoaded(img: string) {
     console.log('log padre', img);
+  }
+  toogleImg(){
+    this.showImg = !this.showImg;
   }
 }
