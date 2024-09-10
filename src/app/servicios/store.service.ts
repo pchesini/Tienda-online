@@ -12,7 +12,7 @@ export class StoreService {
     this.myShopingCart.push(producto);
   }
   getTotal(){
-    return this.myShopingCart.reduce((sum, item)=> sum + item.precio, 0);
+    return this.myShopingCart.reduce((sum, item)=> sum + item.price, 0);
     
   }
   getShopipngCart(){

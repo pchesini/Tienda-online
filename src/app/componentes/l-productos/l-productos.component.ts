@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Producto } from 'src/app/modelos/producto.modelo';
 import { StoreService } from 'src/app/servicios/store.service';
+import { LProductosService } from 'src/app/servicios/l-productos.service';
 
 @Component({
   selector: 'app-l-productos',
@@ -8,37 +9,22 @@ import { StoreService } from 'src/app/servicios/store.service';
   styleUrls: ['./l-productos.component.css']
 })
 export class LProductosComponent implements OnInit{
-  private myShopingCart: Producto[]= [];
+   myShopingCart: Producto[]= [];
   total= 0;
-
-  productos :Producto[] = [
-    {
-        id: '1',
-        nombre: 'Automobil de juguete',
-        precio: 100,
-        imagen: './image1.jpg'
-    },
-    {
-        id: '2',
-        nombre: 'Muñeca de trapo',
-        precio: 180,
-        imagen: './image2.jpg'
-    },
-    {
-        id: '3',
-        nombre: 'Pelota de futbol',
-        precio: 120,
-        imagen: './image3.jpg'
-    }
-  ];
+  productos :Producto[] = []
   
   constructor
-    (private storeService :StoreService){
+    (private storeService :StoreService,
+     private lProdS: LProductosService,
+    )
+    {
       this.myShopingCart = this.storeService.getShopipngCart();
     };
   
   ngOnInit():void{
-
+    this.lProdS.getAllProducts().subscribe(data =>{
+      this.productos = data;
+    })
   }
   
   onAddToShopingCard(producto: Producto){
