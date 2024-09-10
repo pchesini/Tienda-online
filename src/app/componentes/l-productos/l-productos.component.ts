@@ -12,6 +12,8 @@ export class LProductosComponent implements OnInit{
    myShopingCart: Producto[]= [];
   total= 0;
   productos :Producto[] = []
+  today = new Date();
+  date= new Date (2024,3,21);
   
   constructor
     (private storeService :StoreService,

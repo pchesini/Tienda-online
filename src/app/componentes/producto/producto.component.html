@@ -1,5 +1,5 @@
 <app-img [img]="producto.image"></app-img>
 <!-- <img width="200" [src]="producto.imagen" alt="">-->
-<h2>{{ producto.price }}</h2>
+<h2>{{ producto.price | currency :'ARG'}}</h2>
 <p>{{ producto.title}}</p> 
 <button (click)="addToCard()">Agregar al carrito</button>
